@@ -1,0 +1,44 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+enum Animal {
+  DOG
+  CAT
+}
+
+
+model Food {
+  id           Int         @id @default(autoincrement())
+  type         Animal        
+  animalWeight Int
+  daylyFood    Int
+  timeTable     TimeTable[]
+}
+
+model Water {
+  id           Int         @id @default(autoincrement())
+  type         Animal        
+  animalWeight Int
+  daylyWater    Int
+  timeTable     TimeTable[]
+}
+
+model TimeTable {
+  id     Int  @id @default(autoincrement())
+  food   Food @relation(fields: [foodId], references: [id])
+  water Water @relation(fields: [waterId], references: [id])
+  foodId Int
+  waterId Int
+  doses  Int
+
+  type Animal
+}
