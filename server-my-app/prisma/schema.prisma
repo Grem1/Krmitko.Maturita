@@ -1,5 +1,10 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
+enum Command {
+  WATER
+  FOOD
+  CALIBRATE
+}
 
 generator client {
   provider = "prisma-client-js"
@@ -41,4 +46,9 @@ model TimeTable {
   doses  Int
 
   type Animal
+}
+
+model Commands {
+    id     Int  @id @default(autoincrement())
+    command Command
 }

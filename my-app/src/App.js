@@ -5,6 +5,7 @@ import { DosageCats } from './DosageCats';
 import { DosageDogs } from './DosageDogs';
 import { Route, Routes } from 'react-router-dom';
 import { ManControl } from './ManControl';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
 

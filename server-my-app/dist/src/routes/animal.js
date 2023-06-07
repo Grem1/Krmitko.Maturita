@@ -11,5 +11,6 @@ animalRouter.get('/dog/options/water', animalControler_1.getWaterOptionsDog);
 animalRouter.get('/cat/options/food', animalControler_1.getFoodOptionsCat);
 animalRouter.get('/cat/options/water', animalControler_1.getWaterOptionsCat);
 animalRouter.post('/add', animalControler_1.posTimeTable);
+animalRouter.post('/add/command', animalControler_1.postCommand);
 animalRouter.get('/timetable', animalControler_1.geTimeTable);
 exports.default = animalRouter;

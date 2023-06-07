@@ -9,7 +9,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
     });
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.geTimeTable = exports.posTimeTable = exports.getWaterOptionsCat = exports.getFoodOptionsCat = exports.getWaterOptionsDog = exports.getFoodOptionsDog = void 0;
+exports.postCommand = exports.geTimeTable = exports.posTimeTable = exports.getWaterOptionsCat = exports.getFoodOptionsCat = exports.getWaterOptionsDog = exports.getFoodOptionsDog = void 0;
 const db_1 = require("../utils/db");
 const getFoodOptionsDog = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -153,3 +153,19 @@ const geTimeTable = (req, res) => __awaiter(void 0, void 0, void 0, function* ()
     }
 });
 exports.geTimeTable = geTimeTable;
+const postCommand = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const { command } = req.body;
+        yield db_1.db.commands.create({
+            data: {
+                command: command == 'food' ? 'FOOD' : command == 'calibrate' ? 'CALIBRATE' : 'WATER',
+            }
+        });
+        return res.status(200).send(' :D ');
+    }
+    catch (error) {
+        console.log(error);
+        return res.status(500).send(';<');
+    }
+});
+exports.postCommand = postCommand;

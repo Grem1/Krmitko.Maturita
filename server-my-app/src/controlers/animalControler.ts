@@ -175,3 +175,28 @@ export const geTimeTable = async (req: Request, res : Response) => {
         return res.status(500).send(';<')
     }
 }
+
+export const postCommand =async (req:Request, res: Response) => {
+    
+    try {
+
+        const{command} = req.body
+       await db.commands.create({
+
+        data : {
+            command : command == 'food'? 'FOOD' : command == 'calibrate' ? 'CALIBRATE' : 'WATER',
+        }
+       })
+        
+
+       return res.status(200).send(' :D ')
+
+    } catch (error) {
+
+        console.log (error)
+
+        return res.status(500).send(';<')
+        
+    }
+    
+}
