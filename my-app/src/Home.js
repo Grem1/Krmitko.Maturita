@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 
 export const Home = () => {
@@ -69,10 +70,14 @@ export const Home = () => {
           <Col style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
 
             <Card style={{ width: '20rem' }}>
-              <Button variant='dark'>
+              <Button variant='dark' onClick={() => {
+                        axios.post('http://localhost:3001/animal/add/command', {
+                            command : 'calibrate'
+                        })
+                    }}>
                 <Card.Img variant="top" src="./bowl.jpg" />
                 <Card.Body>
-                  <Card.Title>Kalibrate Bowl</Card.Title>
+                  <Card.Title>Calibrate Bowl</Card.Title>
                 </Card.Body>
               </Button>
             </Card>
