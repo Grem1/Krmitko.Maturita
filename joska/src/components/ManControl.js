@@ -1,18 +1,15 @@
 import React from 'react'
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { Container, Row, Col } from "react-bootstrap"
+import { Container, Row } from "react-bootstrap"
 import axios from 'axios'
 import logo from '../assets/logo.jpg'
 import { BsHouse } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 
-
-
 export const ManControl = () => {
     return (
         <>
-            <img src={logo} className='logo' style={{ paddingTop: '10px' }} />
+            <img src={logo} alt='logo' className='logo' style={{ paddingTop: '10px' }} />
             <Container className='contB'>
                 <div  style={{gap: '50px', display: 'flex', flexDirection: 'column', marginTop: '50px'}}>
                     <Row style={{ textAlign: 'center', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
@@ -35,12 +32,10 @@ export const ManControl = () => {
 
                     </Row>
                 </div>
-
                 <Link to={'/'}>
                     <BsHouse size={'75px'} color='black'/>
                 </Link>
             </Container>
-
         </>
     );
 }

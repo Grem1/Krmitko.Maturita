@@ -1,11 +1,10 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Home } from "./Home";
-import { DosageCats } from './DosageCats';
-import { DosageDogs } from './DosageDogs';
+import { Home } from "./components/Home.js";
+import { DosageCats } from './components/DosageCats';
+import { DosageDogs } from './components/DosageDogs';
 import { Route, Routes } from 'react-router-dom';
-import { ManControl } from './ManControl';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { ManControl } from './components/ManControl';
 
 function App() {
 
